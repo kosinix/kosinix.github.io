@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from localhost:9001/install-lets-encrypt-certificate-on-shared-hosting/?replytocom=548 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 May 2020 10:02:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Nico Amarilla - Install Lets Encrypt Certificate On Shared Hosting Replytocom 548</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="Nico Amarilla - Install Lets Encrypt Certificate On Shared Hosting Replytocom 548" />
+    <meta property="og:description" content="" />
+
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" href="../favicon.html" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="page-install-lets-encrypt-certificate-on-shared-hosting">
+    <header class="header">
+        <section class="site">Nico Amarilla</section>
+        <section class="tagline">
+            <p>My personal notes on programming.</p>
+        </section>
+        <nav class="social">
+            <ul>
+                <li><a href="../index.html"><svg viewBox="0 0 24 24"><path d="M8,20H5V12H2L12,3L22,12H19V20H12V14H8V20M14,14V17H17V14H14Z" /></svg></a></li>
+                <li><a target="_blank" href="https://www.github.com/kosinix"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />    </svg></a></li>
+                <li><a target="_blank" href="https://www.twitter.com/kosinix"><svg viewBox="0 0 24 24">    <path d="M17.71,9.33C18.19,8.93 18.75,8.45 19,7.92C18.59,8.13 18.1,8.26 17.56,8.33C18.06,7.97 18.47,7.5 18.68,6.86C18.16,7.14 17.63,7.38 16.97,7.5C15.42,5.63 11.71,7.15 12.37,9.95C9.76,9.79 8.17,8.61 6.85,7.16C6.1,8.38 6.75,10.23 7.64,10.74C7.18,10.71 6.83,10.57 6.5,10.41C6.54,11.95 7.39,12.69 8.58,13.09C8.22,13.16 7.82,13.18 7.44,13.12C7.81,14.19 8.58,14.86 9.9,15C9,15.76 7.34,16.29 6,16.08C7.15,16.81 8.46,17.39 10.28,17.31C14.69,17.11 17.64,13.95 17.71,9.33M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" /></svg></a></li>
+                <li><a href="../about.html"><svg viewBox="0 0 24 24"><path d="M9,11.75A1.25,1.25 0 0,0 7.75,13A1.25,1.25 0 0,0 9,14.25A1.25,1.25 0 0,0 10.25,13A1.25,1.25 0 0,0 9,11.75M15,11.75A1.25,1.25 0 0,0 13.75,13A1.25,1.25 0 0,0 15,14.25A1.25,1.25 0 0,0 16.25,13A1.25,1.25 0 0,0 15,11.75M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,11.71 4,11.42 4.05,11.14C6.41,10.09 8.28,8.16 9.26,5.77C11.07,8.33 14.05,10 17.42,10C18.2,10 18.95,9.91 19.67,9.74C19.88,10.45 20,11.21 20,12C20,16.41 16.41,20 12,20Z" /></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="main">
+
+	
+		
+			<article id="post-190" class="entry entry-list post-190 post type-post status-publish format-standard has-post-thumbnail hentry category-security category-web-development category-web-server">
+				<header>
+					<h1 class="entry-title"><a href="index.html">Install Lets Encrypt Certificate on Shared Hosting</a></h1>
+					<section class="entry-meta">
+	<span class="entry-date">
+		<span>
+			<svg viewBox="0 0 24 24">
+				<path d="M15,13H16.5V15.82L18.94,17.23L18.19,18.53L15,16.69V13M19,8H5V19H9.67C9.24,18.09 9,17.07 9,16A7,7 0 0,1 16,9C17.07,9 18.09,9.24 19,9.67V8M5,21C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H6V1H8V3H16V1H18V3H19A2,2 0 0,1 21,5V11.1C22.24,12.36 23,14.09 23,16A7,7 0 0,1 16,23C14.09,23 12.36,22.24 11.1,21H5M16,11.15A4.85,4.85 0 0,0 11.15,16C11.15,18.68 13.32,20.85 16,20.85A4.85,4.85 0 0,0 20.85,16C20.85,13.32 18.68,11.15 16,11.15Z"></path>
+			</svg>
+			<span class="meta-text">March 15, 2016</span>
+		</span>
+	</span>
+	<span class="entry-comment-count">
+		<a href="index.html#comments">
+			<svg viewBox="0 0 24 24">
+				<path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z"></path>
+			</svg>
+			<span class="meta-text">20 Comments</span>
+		</a>
+	</span>
+	<span class="entry-author">
+		<a href="../author/kosinix/index.html" rel="author">
+			<svg viewBox="0 0 24 24">
+				<path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+			</svg>
+			<span class="meta-text">Nico Amarilla</span>
+		</a>
+	</span>
+</section>				</header>
+									<section class="entry-featured">
+						<img src="../wp-content/uploads/2016/03/le-featured.jpg" class="attachment-full size-full wp-post-image" alt="Install Lets Encrypt on Shared Host" srcset="/wp-content/uploads/2016/03/le-featured.jpg 900w, /wp-content/uploads/2016/03/le-featured-500x139.jpg 500w, /wp-content/uploads/2016/03/le-featured-768x213.jpg 768w" sizes="(max-width: 900px) 100vw, 900px" width="900" height="250">					</section>
+								<section class="entry-content">
+					<div class="note big"><strong>Update:</strong> This is one of the first tutorial about using letsencrypt in shared hosting when letsencrypt first came out. However, its 2018, and letsencrypt is now <a href="https://certbot.eff.org/docs/using.html" rel="noopener" target="_blank">certbot</a>. This tutorial might be outdated. The good news is, you can try out the <a href="../lets-encrypt-certificate-generator/index.html" rel="noopener" target="_blank">Lets Encrypt Certificate Generator</a> instead!</div>
+<p>The gist here is to generate the Let’s Encrypt certificate locally and install it to your server using cPanel. This is the exact steps I used for this domain.</p>
+<h2>Things Needed</h2>
+<ul>
+<li><strong>An OS to install and run the Let’s Encrypt client</strong>. In this example I will use Ubuntu 14.04 VM on Windows.</li>
+<li><strong>cPanel access</strong>. Your cPanel should allow SSL certificates to be installed manually.</li>
+<li><strong>File upload access to the server</strong>. I used SFTP.</li>
+</ul>
+<h3>Installing the Let’s Encrypt Client</h3>
+<ol>
+<li>Fire up the terminal and update Ubuntu.
+<pre><code>sudo apt-get update</code></pre>
+<p>Then install letsenceypt client using git:</p>
+<pre><code>git clone https://github.com/letsencrypt/letsencrypt</code></pre>
+<div class="note"><strong>Note:</strong> If you don’t have git installed, type: <code>sudo apt-get install git</code></div>
+</li>
+<li>Once its done, go to the directory where the client is installed. For me its: cd letsencrypt</li>
+</ol>
+<h3>Generating the Lets Encrypt Certificate</h3>
+<ol>
+<li value="3">Inside the letsencrypt directory, type:
+<pre><code>./letsencrypt-auto certonly -a manual --rsa-key-size 4096 -d kosinix.com -d www.kosinix.com</code></pre>
+<div class="note"><strong>Note:</strong> Make sure to change kosinix.com to the domain of your website.</div>
+</li>
+</ol>
+<ol>
+<li value="4">The client will prompt you if its OK to log your IP. Choose Yes.<br>
+<figure id="attachment_192" style="max-width: 500px" class="wp-caption aligncenter"><a class="kos-popup " style="width: 500px;" href="../wp-content/uploads/2016/03/le-confirm-ip.jpg" rel="attachment wp-att-192"><img class="size-medium wp-image-192" src="../wp-content/uploads/2016/03/le-confirm-ip-500x271.jpg" alt="Confirm IP logging" srcset="/wp-content/uploads/2016/03/le-confirm-ip-500x271.jpg 500w, /wp-content/uploads/2016/03/le-confirm-ip-768x416.jpg 768w, /wp-content/uploads/2016/03/le-confirm-ip.jpg 800w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="271"></a><figcaption class="wp-caption-text">Confirm IP logging</figcaption></figure>
+</li>
+<li>Now, whatever happens, do not press anything yet or you will have to restart the generation process!</li>
+</ol>
+<h3>Confirming Domain Ownership</h3>
+<p>Notice that below the prompt is an instruction on how to confirm ownership of your domain: Make sure your web server displays the following content at http://kosinix.com/.well-known/acme-challenge/xuJ_RPQbkGG356A7WRya9JiJ59Lj1dWjS7OG40oQMOM before continuing: xuJ_RPQbkGG356A7WRya9JiJ59Lj1dWjS7OG40oQMOM.oUqbjO_-ZMUbmaC1JeWUVUrSB0ulSIDoHekYe_jffyk </p>
+<figure id="attachment_193" style="max-width: 500px" class="wp-caption aligncenter"><a class="kos-popup " style="width: 500px;" href="../wp-content/uploads/2016/03/le-domain-confirm.jpg" rel="attachment wp-att-193"><img class="size-medium wp-image-193" src="../wp-content/uploads/2016/03/le-domain-confirm-500x62.jpg" alt="The domain confirmation test" srcset="/wp-content/uploads/2016/03/le-domain-confirm-500x62.jpg 500w, /wp-content/uploads/2016/03/le-domain-confirm-768x96.jpg 768w, /wp-content/uploads/2016/03/le-domain-confirm-900x112.jpg 900w, /wp-content/uploads/2016/03/le-domain-confirm.jpg 1020w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="62"></a><figcaption class="wp-caption-text">The domain confirmation test</figcaption></figure>
+<p></p>
+<ol>
+<li value="6">Connect to your server and create the following directory inside your server’s public directory: .well-known/acme-challenge/</li>
+<li>Inside it create a text file named xuJ_RPQbkGG356A7WRya9JiJ59Lj1dWjS7OG40oQMOM that contains the string xuJ_RPQbkGG356A7WRya9JiJ59Lj1dWjS7OG40oQMOM.oUqbjO_-ZMUbmaC1JeWUVUrSB0ulSIDoHekYe_jffyk</li>
+</ol>
+<div class="note"><strong>Note:</strong> The strings will be different for you.</div>
+<ol>
+<li value="8">Once you are done, go back to the terminal and press the enter. LE will generate one more confirmation. Just repeat step number 6.</li>
+</ol>
+<h3>Installing the Certificate in cPanel</h3>
+<figure id="attachment_191" style="max-width: 500px" class="wp-caption aligncenter"><a class="kos-popup " style="width: 500px;" href="../wp-content/uploads/2016/03/le-cpanel-ssl.jpg" rel="attachment wp-att-191"><img class="size-medium wp-image-191" src="../wp-content/uploads/2016/03/le-cpanel-ssl-500x202.jpg" alt="cPanel SSL panel" srcset="/wp-content/uploads/2016/03/le-cpanel-ssl-500x202.jpg 500w, /wp-content/uploads/2016/03/le-cpanel-ssl.jpg 530w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="202"></a><figcaption class="wp-caption-text">cPanel SSL panel</figcaption></figure>
+<ol>
+<li value="9">Type:
+<pre><code>sudo nautilus</code></pre>
+</li>
+<li>Using the file browser as root, navigate to <code>/etc/letsencrypt/live/kosinix.com</code></li>
+<li>Login to your cPanel. Copy and paste the SSL info from these files into the cPanel SSL panel:
+<pre><code>Certificate (CRT) is cert.pem
+Private Key is privkey.pem
+Certificate Authority Bundle: (CABUNDLE) or CA is chain.pem</code></pre>
+<p>I used gedit to open and copy the contents of the .pem files. </p>
+<figure id="attachment_199" style="max-width: 500px" class="wp-caption aligncenter"><a class="kos-popup " style="width: 500px;" href="../wp-content/uploads/2016/03/le-cpanel-ssl-form.jpg" rel="attachment wp-att-199"><img class="size-medium wp-image-199" src="../wp-content/uploads/2016/03/le-cpanel-ssl-form-500x500.jpg" alt="Installing the certificate in cPanel" srcset="/wp-content/uploads/2016/03/le-cpanel-ssl-form-500x500.jpg 500w, /wp-content/uploads/2016/03/le-cpanel-ssl-form-150x150.jpg 150w, /wp-content/uploads/2016/03/le-cpanel-ssl-form.jpg 578w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="500"></a><figcaption class="wp-caption-text">Installing the certificate in cPanel</figcaption></figure>
+<p></p>
+<div class="note">
+<p><strong>Note:</strong> You can also use the <code>cat</code> command to view text files in the terminal. Eg. <code>cat cert.pem</code></p>
+</div>
+</li>
+</ol>
+<h2>Bonus: Redirect all request to https</h2>
+<p>Add this in your .htaccess:</p>
+<pre><code># BEGIN Force SSL
+# This should be the first rule before other rules
+&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+&lt;/IfModule&gt;
+# END Force SSL</code></pre>
+<h2>Additional Resources/References</h2>
+<ul class="mini-list">
+<li><a href="https://community.letsencrypt.org/t/tutorial-for-os-x-local-certificates-and-shared-hosting/6859">https://community.letsencrypt.org/t/tutorial-for-os-x-local-certificates-and-shared-hosting/6859</a></li>
+<li><a href="https://wiki.apache.org/httpd/RewriteHTTPToHTTPS">https://wiki.apache.org/httpd/RewriteHTTPToHTTPS</a></li>
+</ul>
+				</section>
+				<section class="entry-comments">
+					<section class="entry-comments">
+	<div id="comments" class="comments-area">
+		
+					<h2 class="comments-title">
+				20 Comments			</h2>
+
+			<ol class="commentlist">
+					<li class="pingback even thread-even depth-1" id="comment-428">
+		<p>Pingback: <a href="https://alex.caro.us/2016/04/16/lets-encrypt/" rel="external nofollow" class="url">Let’s Encrypt – Alex Caro</a> </p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-429">
+		<article id="comment-429" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/cde860aad8f7b31ca25d8a42c1d14d26?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/cde860aad8f7b31ca25d8a42c1d14d26?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://www.adesignideas.com/" rel="external nofollow" class="url">Maruen</a></b> </cite><a href="index.html#comment-429"><time datetime="2016-04-19T04:22:02+00:00">April 19, 2016 at 4:22 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Ah i just knew that we can generate letsencrypt on local and upload cert to our shared hosting … i’m gonna need this 🙂</p>
+<p>Thanks</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexcd53.html?replytocom=429#respond" onclick="return addComment.moveForm( &quot;comment-429&quot;, &quot;429&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Maruen">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-430">
+		<article id="comment-430" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/7f52be74169f2e5d6a7930392a1e0774?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7f52be74169f2e5d6a7930392a1e0774?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">Sam</b> </cite><a href="index.html#comment-430"><time datetime="2016-04-25T02:07:34+00:00">April 25, 2016 at 2:07 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Let’s encrypt certificates expires in 90 days. How could we auto renew the cert with this method and put it on the server automatically?</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index6950.html?replytocom=430#respond" onclick="return addComment.moveForm( &quot;comment-430&quot;, &quot;430&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Sam">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-431">
+		<article id="comment-431" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/0930446337daa0217bf47640c3f3214d?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/0930446337daa0217bf47640c3f3214d?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://www.shorter.tk/" rel="external nofollow" class="url">Tom Buizer</a></b> </cite><a href="index.html#comment-431"><time datetime="2016-04-26T11:54:07+00:00">April 26, 2016 at 11:54 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>do you need to point your domain to your ubuntu or not</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index75f6.html?replytocom=431#respond" onclick="return addComment.moveForm( &quot;comment-431&quot;, &quot;431&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Tom Buizer">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-448">
+		<article id="comment-448" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/76710fbd82cc4b6dff44d5400c9bfd96?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/76710fbd82cc4b6dff44d5400c9bfd96?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://arjunkakkalasseri.com/" rel="external nofollow" class="url">Arjun Kakkalasseri</a></b> </cite><a href="index.html#comment-448"><time datetime="2016-05-17T11:53:25+00:00">May 17, 2016 at 11:53 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I’ve successfully created a certificate..but my host only supports private key with is of 2048bit… mine seems to be larger than that, what should I do?</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index60b3.html?replytocom=448#respond" onclick="return addComment.moveForm( &quot;comment-448&quot;, &quot;448&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Arjun Kakkalasseri">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-453">
+		<article id="comment-453" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/8df72ec2df02b9b4f171e99d772fd07d?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/8df72ec2df02b9b4f171e99d772fd07d?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="https://www.saifulislam.info/" rel="external nofollow" class="url">Saiful Islam</a></b> </cite><a href="index.html#comment-453"><time datetime="2016-05-30T06:34:07+00:00">May 30, 2016 at 6:34 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Great Tutorial, But the certificate is valid for only 3 months. How to renew it automatically? or should I renew it manually every 3 month?</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index1233.html?replytocom=453#respond" onclick="return addComment.moveForm( &quot;comment-453&quot;, &quot;453&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Saiful Islam">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-494">
+		<article id="comment-494" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/8be9d081f21dba64e596617000fb9844?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/8be9d081f21dba64e596617000fb9844?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">leo</b> </cite><a href="index.html#comment-494"><time datetime="2016-06-25T15:49:31+00:00">June 25, 2016 at 3:49 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Hello thank you for the tutorial, can you please explain the sep 5, 6 and 7?</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexd1c1.html?replytocom=494#respond" onclick="return addComment.moveForm( &quot;comment-494&quot;, &quot;494&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to leo">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-504">
+		<article id="comment-504" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/a6903b5511184f53eca27182ea716f4f?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a6903b5511184f53eca27182ea716f4f?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">Bhushan S Jawle</b> </cite><a href="index.html#comment-504"><time datetime="2016-07-02T12:32:59+00:00">July 2, 2016 at 12:32 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Awesome tutorial ! Thank you !</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexc31e.html?replytocom=504#respond" onclick="return addComment.moveForm( &quot;comment-504&quot;, &quot;504&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Bhushan S Jawle">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-515">
+		<article id="comment-515" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/6fe18a1c8e74f8392f14b06585e0e85e?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/6fe18a1c8e74f8392f14b06585e0e85e?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="https://www.niklasrosenstein.com/" rel="external nofollow" class="url">Niklas Rosenstein</a></b> </cite><a href="index.html#comment-515"><time datetime="2016-07-03T15:21:51+00:00">July 3, 2016 at 3:21 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks for this article, it helped me out. 🙂 In the end I’ve been using the “webroot” plugin instead of “manual”, the only problem was that it wouldn’t wait until I copied the files to the actual webserver. I’ve ended up forking certbot and adding a “–webroot-delay-auth” option.</p>
+<p><a href="https://github.com/certbot/certbot/pull/3236" rel="nofollow">https://github.com/certbot/certbot/pull/3236</a></p>
+<p>Also, I’ve looked into a method of running certbot without elevated privileges:</p>
+<p><a href="https://www.niklasrosenstein.com/2016/07/using-letsencrypt-without-sudo/" rel="nofollow">https://www.niklasrosenstein.com/2016/07/using-letsencrypt-without-sudo/</a></p>
+<p>Thanks again,<br>
+Niklas</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index8d90.html?replytocom=515#respond" onclick="return addComment.moveForm( &quot;comment-515&quot;, &quot;515&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Niklas Rosenstein">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-523">
+		<article id="comment-523" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/7737456d96c45bcdfc3cf9412053c3a0?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/7737456d96c45bcdfc3cf9412053c3a0?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="#" rel="external nofollow" class="url">Marco Villanueva</a></b> </cite><a href="index.html#comment-523"><time datetime="2016-07-12T18:48:01+00:00">July 12, 2016 at 6:48 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Amigo, me acabas de hacer muy muy felíz, está excelente tu POST, de verdad 1000000000 gracias</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexa14a.html?replytocom=523#respond" onclick="return addComment.moveForm( &quot;comment-523&quot;, &quot;523&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Marco Villanueva">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-527">
+		<article id="comment-527" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/8be9d081f21dba64e596617000fb9844?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/8be9d081f21dba64e596617000fb9844?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">leo</b> </cite><a href="index.html#comment-527"><time datetime="2016-07-14T23:39:58+00:00">July 14, 2016 at 11:39 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Hello, thank you for the tutorial and I was wondering about the renewal process?</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index9d80.html?replytocom=527#respond" onclick="return addComment.moveForm( &quot;comment-527&quot;, &quot;527&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to leo">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-548">
+		<article id="comment-548" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/c88258025c7a725944c98e6cff54c14b?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/c88258025c7a725944c98e6cff54c14b?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://talicraft.com/" rel="external nofollow" class="url">Brian W Muthangia</a></b> </cite><a href="index.html#comment-548"><time datetime="2016-08-19T12:47:06+00:00">August 19, 2016 at 12:47 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks man for the tutorial. it has been realy helpful. I have a startup dealing with internet security solutions. I would like to poke your mind on one or two things</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index7dc1.html?replytocom=548#respond" onclick="return addComment.moveForm( &quot;comment-548&quot;, &quot;548&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Brian W Muthangia">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-594">
+		<article id="comment-594" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/abaa55c6742ae60390344a16f93e4d93?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/abaa55c6742ae60390344a16f93e4d93?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://kankorasan.com/" rel="external nofollow" class="url">kankorasan</a></b> </cite><a href="index.html#comment-594"><time datetime="2016-10-10T21:38:13+00:00">October 10, 2016 at 9:38 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Good article and tutorial… please explain how to renew after 90 days, as I can see your site Certificate is no longer supported, and browse give alert before entering your website.</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="index4b50.html?replytocom=594#respond" onclick="return addComment.moveForm( &quot;comment-594&quot;, &quot;594&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to kankorasan">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-610">
+		<article id="comment-610" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/10283a66d90d6553400640609ef3f6be?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/10283a66d90d6553400640609ef3f6be?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://www.hostinger.com/tutorials/" rel="external nofollow" class="url">Domantas</a></b> </cite><a href="index.html#comment-610"><time datetime="2016-10-20T09:43:23+00:00">October 20, 2016 at 9:43 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thank you for the tutorial. Let’s Encrypt is great and cPanel has a handy plugin to install lets encrypt ssl certificates. For those hosting providers who use custom control panels, and has limited ssh access there is a way to use ACME php client and composer to install ssl certificate. We even created a tutorial on this topic, showing how to install lets encrypt on shared hosting: <a href="http://www.hostinger.com/tutorials/ssl/how-to-install-free-ssl-from-lets-encypt-on-shared-hosting" rel="nofollow">http://www.hostinger.com/tutorials/ssl/how-to-install-free-ssl-from-lets-encypt-on-shared-hosting</a></p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexb4fd.html?replytocom=610#respond" onclick="return addComment.moveForm( &quot;comment-610&quot;, &quot;610&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Domantas">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-658">
+		<article id="comment-658" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/43b3f014258e7fe055d8b88f15b90d7b?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/43b3f014258e7fe055d8b88f15b90d7b?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">Tim</b> </cite><a href="index.html#comment-658"><time datetime="2016-11-28T13:50:35+00:00">November 28, 2016 at 1:50 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>This is very useful but seems that without root access there is not much you can do?</p>
+<p>This is a list of hosting that has the cPanel letsencrypt plugin ready installed:<br>
+<a href="http://www.webhostwhat.com/lets-encrypt-shared-free-ssl-hosting-list-of-companies/" rel="nofollow">http://www.webhostwhat.com/lets-encrypt-shared-free-ssl-hosting-list-of-companies/</a></p>
+<p>Regards,<br>
+Tim</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexc2c0.html?replytocom=658#respond" onclick="return addComment.moveForm( &quot;comment-658&quot;, &quot;658&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Tim">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-744">
+		<article id="comment-744" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/5d66908e852bc67e527b91e82d571fdf?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/5d66908e852bc67e527b91e82d571fdf?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">Aashutosh</b> </cite><a href="index.html#comment-744"><time datetime="2017-02-04T06:41:39+00:00">February 4, 2017 at 6:41 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Thanks a ton for the step-by-step tutorial. This helps !</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexb8e1.html?replytocom=744#respond" onclick="return addComment.moveForm( &quot;comment-744&quot;, &quot;744&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Aashutosh">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-810">
+		<article id="comment-810" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/25ba3c01a30eadf89c2a3d9374553c1a?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/25ba3c01a30eadf89c2a3d9374553c1a?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://sunmusic.com.br/" rel="external nofollow" class="url">Gustavo Neves</a></b> </cite><a href="index.html#comment-810"><time datetime="2017-04-05T20:10:26+00:00">April 5, 2017 at 8:10 pm</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>I was wondering if this would work and it does. </p>
+<p>Nowadays there is a LetsEncrypt cPanel plugin that makes this easier and can autoupdate certificates. But if you are not lucky to have that installed (like me) you can use this method to renew each 2-3 months manually. </p>
+<p>I have used <a href="https://acme.sh/" rel="nofollow">https://acme.sh</a> instead of LE’s script (I like that better). Used the webroot mode.<br>
+I have then disabled acme’s cron job and installed the certs from cPanel’s.<br>
+There may be a way to install the certificate from cPanel`s ssh jailbox, I will investigate into that.</p>
+<p>My cPanel was a bit different. I had to create a private key, create a certificate and then install those to my domain. Glad it works but I am already looking for another company that has LE builtin.</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexecaa.html?replytocom=810#respond" onclick="return addComment.moveForm( &quot;comment-810&quot;, &quot;810&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Gustavo Neves">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-868">
+		<article id="comment-868" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/75e3cdd9fe3023c99dbe3dcd8645b9d0?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/75e3cdd9fe3023c99dbe3dcd8645b9d0?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn"><a href="http://www.njokusomto.com/" rel="external nofollow" class="url">Sommie Njoku</a></b> </cite><a href="index.html#comment-868"><time datetime="2017-06-06T04:14:07+00:00">June 6, 2017 at 4:14 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Dude, you rock!<br>
+Thank you so much sir.</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexb150.html?replytocom=868#respond" onclick="return addComment.moveForm( &quot;comment-868&quot;, &quot;868&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to Sommie Njoku">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-885">
+		<article id="comment-885" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/14192ed67c3fa9fd3a02a3b774c4a36f?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/14192ed67c3fa9fd3a02a3b774c4a36f?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">htmltiger</b> </cite><a href="index.html#comment-885"><time datetime="2017-07-06T11:07:59+00:00">July 6, 2017 at 11:07 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>for namecheap shared hosting you can use this to automate it</p>
+<p><a href="https://www.juliogonzalez.es/lets-encrypt-ssl-certificates-at-cpanel-without-native-support-for-example-at-namecheap/352" rel="nofollow">https://www.juliogonzalez.es/lets-encrypt-ssl-certificates-at-cpanel-without-native-support-for-example-at-namecheap/352</a></p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexbe57.html?replytocom=885#respond" onclick="return addComment.moveForm( &quot;comment-885&quot;, &quot;885&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to htmltiger">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-893">
+		<article id="comment-893" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="https://secure.gravatar.com/avatar/d01cb06c1401f5a916694b6d662f1608?s=44&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/d01cb06c1401f5a916694b6d662f1608?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo" width="44" height="44"><cite><b class="fn">anD</b> </cite><a href="index.html#comment-893"><time datetime="2017-07-20T06:02:19+00:00">July 20, 2017 at 6:02 am</time></a>			</header><!-- .comment-meta -->
+
+			
+			<section class="comment-content comment">
+				<p>Nico!!<br>
+Thank you very much :):</p>
+				<div class="clearfix">
+								<div class="reply"> 
+					<a rel="nofollow" class="comment-reply-link" href="indexdf7b.html?replytocom=893#respond" onclick="return addComment.moveForm( &quot;comment-893&quot;, &quot;893&quot;, &quot;respond&quot;, &quot;190&quot; )" aria-label="Reply to anD">Reply</a> <span>↓</span>				</div><!-- .reply -->
+				</div>
+			</section><!-- .comment-content -->
+
+			
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+			</ol><!-- .commentlist -->
+
+			
+					
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://localhost:9001/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="190" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c02f647685"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1564527160931"></form>
+			</div><!-- #respond -->
+	
+	</div><!-- #comments .comments-area -->
+</section>				</section>
+			</article>
+			
+			</section>
+
+<footer class="footer">
+    <section id="nav_menu-2" class="widget widget_nav_menu">
+        <h2 class="widget-title">Navigation</h2>
+        <div class="menu-navigation-container">
+            <ul id="menu-navigation" class="menu">
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-4"><a href="http://www.kosinix.com/">Home</a></li>
+                <li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="../about/index.html">About Kosinix</a></li>
+                <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </section>		
+    <section id="recent-posts-2" class="widget widget_recent_entries">		
+        <h2 class="widget-title">Recent Posts</h2>		
+        <ul>
+            <li><a href="../namecheap-digital-ocean-transfer-domain/index.html">Namecheap to Digital Ocean Transfer Domain</a></li>
+            <li><a href="../install-sendmail-ubuntu-slow/index.html">Install Sendmail on Ubuntu And Why Is It So Slow?</a></li>
+            <li><a href="../connect-to-a-digital-ocean-droplet-on-windows-using-putty/index.html">Connect To a Digital Ocean Droplet On Windows Using Putty</a></li>
+            <li><a href="index.html">Install Lets Encrypt Certificate on Shared Hosting</a></li>
+            <li><a href="../transfer-a-domain-from-namecheap-to-asmallorange/index.html">Transfer a Domain From Namecheap to ASmallOrange</a></li>
+        </ul>
+    </section>
+    <section id="categories-2" class="widget widget_categories">
+        <h2 class="widget-title">Categories</h2>		
+        <ul>
+            <li class="cat-item cat-item-7"><a href="../category/security/index.html">Security</a> (1)</li>
+	        <li class="cat-item cat-item-8"><a href="../category/system-administration/index.html">System Administration</a> (2)</li>
+            <li class="cat-item cat-item-4"><a href="../category/web-development/index.html">Web Development</a> (10)</li>
+            <li class="cat-item cat-item-5"><a href="../category/web-server/index.html">Web Server</a> (5)</li>
+            <li class="cat-item cat-item-3"><a href="../category/windows/index.html">Windows</a> (7)</li>
+		</ul>
+    </section>
+    <section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		
+        <ul>
+			<li><a href="../2017/12/index.html">December 2017</a>&nbsp;(2)</li>
+            <li><a href="../2017/06/index.html">June 2017</a>&nbsp;(1)</li>
+            <li><a href="../2016/03/index.html">March 2016</a>&nbsp;(1)</li>
+            <li><a href="../2015/09/index.html">September 2015</a>&nbsp;(1)</li>
+            <li><a href="../2015/08/index.html">August 2015</a>&nbsp;(1)</li>
+            <li><a href="../2014/10/index.html">October 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/09/index.html">September 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/08/index.html">August 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/07/index.html">July 2014</a>&nbsp;(4)</li>
+            <li><a href="../2014/06/index.html">June 2014</a>&nbsp;(2)</li>
+		</ul>
+    </section>    
+</footer>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/lodash.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script src="../js/axios.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from localhost:9001/install-lets-encrypt-certificate-on-shared-hosting/?replytocom=548 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 May 2020 10:02:34 GMT -->
+</html>

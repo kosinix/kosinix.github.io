@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from localhost:9001/how-to-manually-install-mysql-on-windows/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 May 2020 10:03:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Nico Amarilla - How To Manually Install Mysql On Windows</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="Nico Amarilla - How To Manually Install Mysql On Windows" />
+    <meta property="og:description" content="" />
+
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" href="../favicon.html" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="page-how-to-manually-install-mysql-on-windows">
+    <header class="header">
+        <section class="site">Nico Amarilla</section>
+        <section class="tagline">
+            <p>My personal notes on programming.</p>
+        </section>
+        <nav class="social">
+            <ul>
+                <li><a href="../index.html"><svg viewBox="0 0 24 24"><path d="M8,20H5V12H2L12,3L22,12H19V20H12V14H8V20M14,14V17H17V14H14Z" /></svg></a></li>
+                <li><a target="_blank" href="https://www.github.com/kosinix"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />    </svg></a></li>
+                <li><a target="_blank" href="https://www.twitter.com/kosinix"><svg viewBox="0 0 24 24">    <path d="M17.71,9.33C18.19,8.93 18.75,8.45 19,7.92C18.59,8.13 18.1,8.26 17.56,8.33C18.06,7.97 18.47,7.5 18.68,6.86C18.16,7.14 17.63,7.38 16.97,7.5C15.42,5.63 11.71,7.15 12.37,9.95C9.76,9.79 8.17,8.61 6.85,7.16C6.1,8.38 6.75,10.23 7.64,10.74C7.18,10.71 6.83,10.57 6.5,10.41C6.54,11.95 7.39,12.69 8.58,13.09C8.22,13.16 7.82,13.18 7.44,13.12C7.81,14.19 8.58,14.86 9.9,15C9,15.76 7.34,16.29 6,16.08C7.15,16.81 8.46,17.39 10.28,17.31C14.69,17.11 17.64,13.95 17.71,9.33M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" /></svg></a></li>
+                <li><a href="../about.html"><svg viewBox="0 0 24 24"><path d="M9,11.75A1.25,1.25 0 0,0 7.75,13A1.25,1.25 0 0,0 9,14.25A1.25,1.25 0 0,0 10.25,13A1.25,1.25 0 0,0 9,11.75M15,11.75A1.25,1.25 0 0,0 13.75,13A1.25,1.25 0 0,0 15,14.25A1.25,1.25 0 0,0 16.25,13A1.25,1.25 0 0,0 15,11.75M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,11.71 4,11.42 4.05,11.14C6.41,10.09 8.28,8.16 9.26,5.77C11.07,8.33 14.05,10 17.42,10C18.2,10 18.95,9.91 19.67,9.74C19.88,10.45 20,11.21 20,12C20,16.41 16.41,20 12,20Z" /></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="main">
+
+	
+		
+			<article id="post-125" class="entry entry-list post-125 post type-post status-publish format-standard has-post-thumbnail hentry category-web-development category-windows">
+				<header>
+					<h1 class="entry-title"><a href="index.html">How to Manually Install MySQL on Windows</a></h1>
+					<section class="entry-meta">
+	<span class="entry-date">
+		<span>
+			<svg viewBox="0 0 24 24">
+				<path d="M15,13H16.5V15.82L18.94,17.23L18.19,18.53L15,16.69V13M19,8H5V19H9.67C9.24,18.09 9,17.07 9,16A7,7 0 0,1 16,9C17.07,9 18.09,9.24 19,9.67V8M5,21C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H6V1H8V3H16V1H18V3H19A2,2 0 0,1 21,5V11.1C22.24,12.36 23,14.09 23,16A7,7 0 0,1 16,23C14.09,23 12.36,22.24 11.1,21H5M16,11.15A4.85,4.85 0 0,0 11.15,16C11.15,18.68 13.32,20.85 16,20.85A4.85,4.85 0 0,0 20.85,16C20.85,13.32 18.68,11.15 16,11.15Z"></path>
+			</svg>
+			<span class="meta-text">July 25, 2014</span>
+		</span>
+	</span>
+	<span class="entry-comment-count">
+		<a href="index.html#respond">
+			<svg viewBox="0 0 24 24">
+				<path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z"></path>
+			</svg>
+			<span class="meta-text">Say Something</span>
+		</a>
+	</span>
+	<span class="entry-author">
+		<a href="../author/kosinix/index.html" rel="author">
+			<svg viewBox="0 0 24 24">
+				<path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+			</svg>
+			<span class="meta-text">Nico Amarilla</span>
+		</a>
+	</span>
+</section>				</header>
+									<section class="entry-featured">
+						<img src="../wp-content/uploads/2014/07/featured1.jpg" class="attachment-full size-full wp-post-image" alt="" srcset="/wp-content/uploads/2014/07/featured1.jpg 900w, /wp-content/uploads/2014/07/featured1-500x138.jpg 500w" sizes="(max-width: 900px) 100vw, 900px" width="900" height="250">					</section>
+								<section class="entry-content">
+					<p>MySQL is one of the world’s most widely used open-source relational database management system. It is a popular choice of database for use in web applications and is the M in WAMP stacks. WAMP stands for Windows, Apache, MySQL, PHP. This tutorial is on how to manually install MySQL on Windows 7. </p>
+<h2>Installation</h2>
+<ol>
+<li>Go to dev.mysql.com/downloads/. </li>
+<li>Choose MySQL Community Server for Windows.</li>
+<li>Download the Windows (x86, 32-bit), ZIP Archive.</li>
+<li>Once the download has completed,  extract the contents of the ZIP and rename the folder “mysql-5.6.19-win32″ to “mysql”.</li>
+<li>Move the “mysql” folder to D:\webserver\.<br>
+<a class="kos-popup aligncenter" style="width:500px" href="../wp-content/uploads/2014/07/mysql1.jpg"><img src="../wp-content/uploads/2014/07/mysql1-500x250.jpg" alt="mysql1" class="aligncenter size-medium wp-image-126" srcset="/wp-content/uploads/2014/07/mysql1-500x250.jpg 500w, /wp-content/uploads/2014/07/mysql1.jpg 800w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="250"></a>
+</li>
+</ol>
+<div class="note">
+<p><strong>Note:</strong> MySQL 5.6.19 was the latest at the time of this writing.</p>
+</div>
+<h2>Configure MySQL</h2>
+<ol>
+<li value="6">Inside D:\webserver\mysql find and rename the file my-default.ini to my.ini. This is the MySQL configuration file.</li>
+<li>Open my.ini and find:
+<pre><code>[mysqld]</code></pre>
+</li>
+<li>Under it find:
+<pre><code># basedir = .....
+# datadir = .....</code></pre>
+</li>
+<li>And replace with:
+<pre><code># points to installation directory
+basedir="D:/webserver/mysql/"
+# points data directory
+datadir="D:/webserver/mysql/data/"</code></pre>
+<p><a class="kos-popup aligncenter" style="width:500px" href="../wp-content/uploads/2014/07/mysql2.jpg"><img src="../wp-content/uploads/2014/07/mysql2-500x375.jpg" alt="mysql2" class="aligncenter size-medium wp-image-127" srcset="/wp-content/uploads/2014/07/mysql2-500x375.jpg 500w, /wp-content/uploads/2014/07/mysql2.jpg 800w" sizes="(max-width: 500px) 100vw, 500px" width="500" height="375"></a>
+    </p></li>
+<li>Save my.ini.</li>
+</ol>
+<h2>Install MySQL as Windows Service</h2>
+<ol>
+<li value="11">Open cmd and run it as administrator and go to drive D by typing:
+<pre><code>D:</code></pre>
+<p>	Hit enter to run the command.</p></li>
+<li>Go to the MySQL bin folder by typing the command below and hitting enter:
+<pre><code>cd webserver/mysql/bin</code></pre>
+</li>
+<li>Test mysql if it will run by typing the command below and hitting enter:
+<pre><code>mysqld</code></pre>
+</li>
+</ol>
+<div class="note">
+<p><strong>Note:</strong> If a firewall prompt appears, click allow.</p>
+</div>
+<ol>
+<li value="14">To shutdown mysql, open another command prompt and type this command:
+<pre><code>mysqladmin.exe -u root shutdown</code></pre>
+</li>
+<li>Now that mysql can run, install it as a windows service by typing this command:
+<pre><code>mysqld --install</code></pre>
+</li>
+</ol>
+<p>MySQL should now be installed and will run everytime Window starts.</p>
+<h2>Uninstall MySQL Windows Service</h2>
+<ol>
+<li>Stop the running service either via the service console or via task manager in windows 8.</li>
+<li>Open cmd and run it as administrator and go to drive D by entering:
+<pre><code>D:</code></pre>
+</li>
+<li>Go to the MySQL bin folder by typing the command below and hitting enter:
+<pre><code>cd webserver/mysql/bin</code></pre>
+</li>
+<li>Delete it by typing the command below and hitting enter:
+<pre><code>sc delete MySQL</code></pre>
+<p>where “MySQL” is the name of the service.
+	</p></li>
+</ol>
+				</section>
+				<section class="entry-comments">
+					<section class="entry-comments">
+	<div id="comments" class="comments-area">
+		
+					<h2 class="comments-title">No Comments</h2>
+		
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="http://localhost:9001/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="125" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="fbdfa195e7"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1564526243824"></form>
+			</div><!-- #respond -->
+	
+	</div><!-- #comments .comments-area -->
+</section>				</section>
+			</article>
+			
+			</section>
+
+<footer class="footer">
+    <section id="nav_menu-2" class="widget widget_nav_menu">
+        <h2 class="widget-title">Navigation</h2>
+        <div class="menu-navigation-container">
+            <ul id="menu-navigation" class="menu">
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-4"><a href="http://www.kosinix.com/">Home</a></li>
+                <li id="menu-item-6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6"><a href="../about/index.html">About Kosinix</a></li>
+                <li id="menu-item-212" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-212"><a href="../contact/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </section>		
+    <section id="recent-posts-2" class="widget widget_recent_entries">		
+        <h2 class="widget-title">Recent Posts</h2>		
+        <ul>
+            <li><a href="../namecheap-digital-ocean-transfer-domain/index.html">Namecheap to Digital Ocean Transfer Domain</a></li>
+            <li><a href="../install-sendmail-ubuntu-slow/index.html">Install Sendmail on Ubuntu And Why Is It So Slow?</a></li>
+            <li><a href="../connect-to-a-digital-ocean-droplet-on-windows-using-putty/index.html">Connect To a Digital Ocean Droplet On Windows Using Putty</a></li>
+            <li><a href="../install-lets-encrypt-certificate-on-shared-hosting/index.html">Install Lets Encrypt Certificate on Shared Hosting</a></li>
+            <li><a href="../transfer-a-domain-from-namecheap-to-asmallorange/index.html">Transfer a Domain From Namecheap to ASmallOrange</a></li>
+        </ul>
+    </section>
+    <section id="categories-2" class="widget widget_categories">
+        <h2 class="widget-title">Categories</h2>		
+        <ul>
+            <li class="cat-item cat-item-7"><a href="../category/security/index.html">Security</a> (1)</li>
+	        <li class="cat-item cat-item-8"><a href="../category/system-administration/index.html">System Administration</a> (2)</li>
+            <li class="cat-item cat-item-4"><a href="../category/web-development/index.html">Web Development</a> (10)</li>
+            <li class="cat-item cat-item-5"><a href="../category/web-server/index.html">Web Server</a> (5)</li>
+            <li class="cat-item cat-item-3"><a href="../category/windows/index.html">Windows</a> (7)</li>
+		</ul>
+    </section>
+    <section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		
+        <ul>
+			<li><a href="../2017/12/index.html">December 2017</a>&nbsp;(2)</li>
+            <li><a href="../2017/06/index.html">June 2017</a>&nbsp;(1)</li>
+            <li><a href="../2016/03/index.html">March 2016</a>&nbsp;(1)</li>
+            <li><a href="../2015/09/index.html">September 2015</a>&nbsp;(1)</li>
+            <li><a href="../2015/08/index.html">August 2015</a>&nbsp;(1)</li>
+            <li><a href="../2014/10/index.html">October 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/09/index.html">September 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/08/index.html">August 2014</a>&nbsp;(1)</li>
+            <li><a href="../2014/07/index.html">July 2014</a>&nbsp;(4)</li>
+            <li><a href="../2014/06/index.html">June 2014</a>&nbsp;(2)</li>
+		</ul>
+    </section>    
+</footer>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/lodash.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script src="../js/axios.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from localhost:9001/how-to-manually-install-mysql-on-windows/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 May 2020 10:03:11 GMT -->
+</html>
